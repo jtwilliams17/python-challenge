@@ -33,7 +33,7 @@ with open('Resources/JamesWilliams_budget_data.csv') as csvpath:
         return total / length
 
     #  calculate average change
-    avg_monthly_change = average(monthly_change)
+    avg_monthly_change = round(average(monthly_change), 2)
 
     # calculate greatest increase in profits and losses
     max_increase = max(monthly_change)
@@ -49,13 +49,5 @@ with open('Resources/JamesWilliams_budget_data.csv') as csvpath:
 
     #print results and and export to text file 
     print("Financial Analysis","----------------------------","Total Months: "+str(total_months),\
-    "Total: "+str(total_profit_loss),"Average  Change: "+str(avg_monthly_change),"Greatest Increase in Profits: "+str(max_increase_month)+" "+"($"+str(max_increase)+")",\
-    "Greatest Decrease in Profits: "+str(max_decrease_month)+" "+"($"+str(max_decrease)+")", sep="\n")
-
-output_file = os.path.join('Analysis/PyBank_Financial_Analysis.txt')
-   
-with open(output_file, 'w') as txtfile:
-
-    txtfile.write("Financial Analysis","----------------------------","Total Months: "+str(total_months),\
     "Total: "+str(total_profit_loss),"Average  Change: "+str(avg_monthly_change),"Greatest Increase in Profits: "+str(max_increase_month)+" "+"($"+str(max_increase)+")",\
     "Greatest Decrease in Profits: "+str(max_decrease_month)+" "+"($"+str(max_decrease)+")", sep="\n")
