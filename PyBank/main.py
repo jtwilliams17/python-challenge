@@ -48,6 +48,17 @@ with open('Resources/JamesWilliams_budget_data.csv') as csvpath:
     max_decrease_month = dates[max_decrease_index+1]
 
     #print results and and export to text file 
-    print("Financial Analysis","----------------------------","Total Months: "+str(total_months),\
-    "Total: "+str(total_profit_loss),"Average  Change: "+str(avg_monthly_change),"Greatest Increase in Profits: "+str(max_increase_month)+" "+"($"+str(max_increase)+")",\
-    "Greatest Decrease in Profits: "+str(max_decrease_month)+" "+"($"+str(max_decrease)+")", sep="\n")
+    output = (
+        "\nFinancial Analysis\n"
+        "----------------------------\n"
+        f"Total Months: {total_months}\n"
+        f"Total: ${total_profit_loss}\n"
+        f"Average  Change: ${avg_monthly_change}\n"
+        f"Greatest Increase in Profits: {max_increase_month} $({max_increase})\n"
+        f"Greatest Decrease in Profits: {max_decrease_month} $({max_decrease})\n")
+
+    print(output)
+
+    with open('Analysis/PyBank_Financial_Analysis.txt', 'w') as txt_file:
+        txt_file.write(output)
+
