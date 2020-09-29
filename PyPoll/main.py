@@ -19,7 +19,7 @@ with open('Resources/JamesWilliams_election_data.csv') as csvpath:
     # calculate total votes
     total_votes = len(county)
 
-    # list of candidates using 'set' function found on geeksforgeeks.org
+    # list of candidates using 'set' function
     candidate_list = set(candidate)
 
     #total votes for each candidate
@@ -53,3 +53,23 @@ with open('Resources/JamesWilliams_election_data.csv') as csvpath:
     "Li: "+str(Li_percent)+"% "+"("+str(Li_votes)+")",\
     "O'Tooley: "+str(OTooley_percent)+"% "+"("+str(OTooley_votes)+")",\
     "-------------------------", "Winner: "+str(winner), "-------------------------", sep="\n")
+
+     #print results and and export to text file 
+    output = (
+        "\nElection Results\n"
+        "-------------------------\n"
+        f"Total Votes: {total_votes}\n"
+        f"-------------------------\n"
+        f"Khan: {Khan_percent}% ({Khan_votes})\n"
+        f"Correy: {Correy_percent}% ({Correy_votes})\n"
+        f"Li: {Li_percent}% ({Li_votes})\n"
+        f"O'Tooley: {OTooley_percent}% ({OTooley_votes})\n"
+        f"-------------------------\n"
+        f"Winner: {winner}\n"
+        f"-------------------------\n"
+        )
+
+    print(output)
+
+    with open('Analysis/PyPoll_Election_Results.txt', 'w') as txt_file:
+        txt_file.write(output)
